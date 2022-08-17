@@ -10,8 +10,12 @@ using System.Windows.Forms;
 
 namespace Assignment_TDD
 {
+    /// <summary>
+    /// Main Class
+    /// </summary>
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent(); ;
@@ -53,16 +57,21 @@ namespace Assignment_TDD
             }
         }
 
+        /// <summary>
+        /// This method converts roman numeral to integers
+        /// </summary>
+        /// <param name="rom"></param>
+        /// <returns></returns>
         public static int Roman(string rom)
         {
-            var ro = rom.ToLower();
-            char[] roman = ro.ToCharArray();
+            var ro = rom.ToLower();             //convert parameter to lower case
+            char[] roman = ro.ToCharArray();        //convert string to an array of characters
             int total = 0;
 
 
             try
             {
-                for (int i = 0; i < roman.Length; i++)
+                for (int i = 0; i < roman.Length; i++)      //loops through the array
                 {
                     if (roman[i].ToString() == "i")
                     {
@@ -92,6 +101,7 @@ namespace Assignment_TDD
                     {
                         total += 1000;
                     }
+                    //This part helps with numbers like '4' that have 'i' before 'v'
                     if (roman[i].ToString() == "i" && roman[i + 1].ToString() == "v" && roman.Length >= 2)
                     {
                         total -= 2;
